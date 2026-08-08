@@ -24,3 +24,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.tl-background {
+  background-color: #f8f8f8;
+  background-image: radial-gradient(circle, #c4c4cc 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
