@@ -1,5 +1,4 @@
-import { RoomProvider } from "@/lib/liveblocks.config";
-import { Canvas } from "@/components/Canvas";
+import { BoardRoom } from "@/components/BoardRoom";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -7,16 +6,5 @@ type Props = {
 
 export default async function BoardPage({ params }: Props) {
   const { id } = await params;
-
-  return (
-    <RoomProvider
-      id={`board-${id}`}
-      initialPresence={{ cursor: null, userName: "Anonymous" }}
-      initialStorage={{ document: "" }}
-    >
-      <div className="w-screen h-screen overflow-hidden">
-        <Canvas />
-      </div>
-    </RoomProvider>
-  );
+  return <BoardRoom id={id} />;
 }

@@ -86,9 +86,6 @@ export function Canvas() {
         if (event.type === "pointer" && event.target === "canvas") {
           updateMyPresence({ cursor: { x: event.point.x, y: event.point.y } });
         }
-        if (event.type === "pointer_leave") {
-          updateMyPresence({ cursor: null });
-        }
       });
 
       // Sync local changes to Liveblocks
@@ -108,7 +105,10 @@ export function Canvas() {
   );
 
   return (
-    <div className="relative w-full h-full">
+    <div
+      className="relative w-full h-full"
+      onPointerLeave={() => updateMyPresence({ cursor: null })}
+    >
       <OtherCursors />
       <Tldraw onMount={handleMount} />
     </div>
