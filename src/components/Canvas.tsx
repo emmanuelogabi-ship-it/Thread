@@ -1,6 +1,7 @@
 "use client";
 
 import { Tldraw, Editor, TLEditorSnapshot } from "@tldraw/tldraw";
+import { FloatingToolbar } from "./FloatingToolbar";
 import "@tldraw/tldraw/tldraw.css";
 import { useStorage, useMutation, useOthers, useUpdateMyPresence } from "@/lib/liveblocks.config";
 import { useCallback, useEffect, useRef } from "react";
@@ -110,7 +111,10 @@ export function Canvas() {
       onPointerLeave={() => updateMyPresence({ cursor: null })}
     >
       <OtherCursors />
-      <Tldraw onMount={handleMount} />
+      <Tldraw
+        onMount={handleMount}
+        components={{ InFrontOfTheCanvas: FloatingToolbar }}
+      />
     </div>
   );
 }
