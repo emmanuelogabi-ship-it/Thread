@@ -5,6 +5,7 @@ import { FloatingToolbar } from "./FloatingToolbar";
 import "@tldraw/tldraw/tldraw.css";
 import { useStorage, useMutation, useOthers, useUpdateMyPresence } from "@/lib/liveblocks.config";
 import { useCallback, useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 
 const CURSOR_COLORS = [
   "#E03130", "#2F9E44", "#1971C2", "#F08C00",
@@ -42,6 +43,7 @@ function OtherCursors() {
 }
 
 export function Canvas() {
+  const { resolvedTheme } = useTheme();
   const editorRef = useRef<Editor | null>(null);
   const isApplyingRemote = useRef(false);
   const document = useStorage((root) => root.document);
@@ -113,6 +115,7 @@ export function Canvas() {
       <OtherCursors />
       <Tldraw
         onMount={handleMount}
+        darkMode={resolvedTheme === "dark"}
         components={{ InFrontOfTheCanvas: FloatingToolbar }}
       />
     </div>

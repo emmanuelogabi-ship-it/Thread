@@ -171,13 +171,13 @@ export function FloatingToolbar() {
   };
 
   return (
-    <div className="absolute top-3 left-1/2 -translate-x-1/2 flex items-center gap-1 rounded-xl bg-white shadow-lg border border-zinc-200 px-2 py-1.5 pointer-events-auto select-none"
+    <div className="absolute top-3 left-1/2 -translate-x-1/2 flex items-center gap-1 rounded-xl bg-white dark:bg-zinc-900 shadow-lg border border-zinc-200 dark:border-zinc-700 px-2 py-1.5 pointer-events-auto select-none"
       style={{ zIndex: 400 }}>
 
       {/* Add Image */}
       <button
         onClick={() => setShowImageDialog(true)}
-        className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-zinc-700 hover:bg-zinc-100 transition-colors"
+        className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
       >
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
           <rect x="0.5" y="0.5" width="14" height="14" rx="2" stroke="currentColor" strokeWidth="1.1" />
@@ -187,13 +187,13 @@ export function FloatingToolbar() {
         Add image
       </button>
 
-      <div className="w-px h-5 bg-zinc-200 mx-0.5" />
+      <div className="w-px h-5 bg-zinc-200 dark:bg-zinc-700 mx-0.5" />
 
       {/* Link / Connect shapes */}
       {connectMode === "idle" ? (
         <button
           onClick={() => setConnectMode("picking-first")}
-          className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-zinc-700 hover:bg-zinc-100 transition-colors"
+          className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
         >
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
             <circle cx="2.5" cy="7.5" r="2" stroke="currentColor" strokeWidth="1.1" />
@@ -227,26 +227,26 @@ export function FloatingToolbar() {
             onClick={() => { setShowImageDialog(false); setImageUrl(""); }}
           />
           <div
-            className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 rounded-xl bg-white shadow-2xl border border-zinc-200 p-4"
+            className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 rounded-xl bg-white dark:bg-zinc-900 shadow-2xl border border-zinc-200 dark:border-zinc-700 p-4"
             style={{ zIndex: 600 }}
           >
-            <p className="text-sm font-semibold text-zinc-900 mb-2">Add image from URL</p>
+            <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-2">Add image from URL</p>
             <input
               type="url"
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
               onKeyDown={(e) => { if (e.key === "Enter") handleAddImage(); }}
               placeholder="https://example.com/photo.jpg"
-              className="w-full rounded-lg border border-zinc-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-2"
+              className="w-full rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-2"
               autoFocus
             />
-            <p className="text-xs text-zinc-400 mb-3">
+            <p className="text-xs text-zinc-400 dark:text-zinc-500 mb-3">
               Tip: you can also drag & drop image files directly onto the canvas
             </p>
             <div className="flex justify-end gap-2">
               <button
                 onClick={() => { setShowImageDialog(false); setImageUrl(""); }}
-                className="rounded-lg px-3 py-1.5 text-sm text-zinc-600 hover:bg-zinc-100 transition-colors"
+                className="rounded-lg px-3 py-1.5 text-sm text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
               >
                 Cancel
               </button>

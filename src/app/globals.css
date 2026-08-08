@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Enable class-based dark mode so next-themes (.dark on <html>) controls dark: variants */
+@variant dark (&:is(.dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -28,5 +31,11 @@ body {
 .tl-background {
   background-color: #f8f8f8;
   background-image: radial-gradient(circle, #c4c4cc 0.8px, transparent 0.8px);
+  background-size: 48px 48px;
+}
+
+.dark .tl-background {
+  background-color: #111112;
+  background-image: radial-gradient(circle, #3a3a44 0.8px, transparent 0.8px);
   background-size: 48px 48px;
 }
