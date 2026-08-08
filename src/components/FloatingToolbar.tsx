@@ -29,6 +29,11 @@ function createArrow(editor: ReturnType<typeof useEditor>, fromId: TLShapeId, to
           x: toBounds.midX - fromBounds.midX,
           y: toBounds.midY - fromBounds.midY,
         },
+        color: "violet",
+        size: "m",
+        arrowheadStart: "none",
+        arrowheadEnd: "none",
+        dash: "solid",
       },
     });
 
@@ -87,7 +92,7 @@ export function FloatingToolbar() {
       });
 
       const shape = editor.getShapeAtPoint(pagePoint, { hitInside: true });
-      if (!shape) return;
+      if (!shape || shape.type === "arrow") return;
 
       const shapeId = shape.id;
 
